@@ -1,9 +1,9 @@
-import { Head, router } from '@inertiajs/react';
-import { Calendar, Image, BarChart3, Hash, Clock, Instagram, Twitter, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
+import { Head, router } from '@inertiajs/react';
+import { BarChart3, Calendar, Clock, Facebook, Hash, Image, Instagram, Twitter } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -71,10 +71,7 @@ export default function Dashboard() {
                     <Card className="col-span-2 p-6">
                         <div className="mb-6 flex items-center justify-between">
                             <h2 className="text-xl font-semibold">Criar Novo Post</h2>
-                            <Button 
-                                className="bg-purple-600 hover:bg-purple-700"
-                                onClick={() => router.visit('/create-post')}
-                            >
+                            <Button className="bg-purple-600 hover:bg-purple-700" onClick={() => router.visit(route('create-post'))}>
                                 Novo Post
                             </Button>
                         </div>
@@ -136,7 +133,10 @@ export default function Dashboard() {
                         <h2 className="mb-4 text-xl font-semibold">Hashtags Populares</h2>
                         <div className="flex flex-wrap gap-2">
                             {['#marketing', '#socialmedia', '#digital', '#content', '#trending'].map((tag) => (
-                                <span key={tag} className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-600 dark:bg-purple-900 dark:text-purple-400">
+                                <span
+                                    key={tag}
+                                    className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-600 dark:bg-purple-900 dark:text-purple-400"
+                                >
                                     {tag}
                                 </span>
                             ))}

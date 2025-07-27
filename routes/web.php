@@ -18,9 +18,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('create-post');
     })->name('create-post');
     
-    Route::get('posts', function () {
-        return Inertia::render('posts');
-    })->name('posts');
+    Route::resource('posts', \App\Http\Controllers\PostController::class);
+    Route::post('posts/{post}/duplicate', [\App\Http\Controllers\PostController::class, 'duplicate'])->name('posts.duplicate');
 });
 
 Route::middleware('guest')->group(function () {

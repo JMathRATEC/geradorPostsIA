@@ -17,7 +17,8 @@ class PollinationsAIService
     {
         try {
             $encodedPrompt = urlencode($prompt);
-            $imageUrl = self::IMAGE_API_BASE . "/prompt/{$encodedPrompt}";
+            $timestamp = time();
+            $imageUrl = self::IMAGE_API_BASE . "/prompt/{$encodedPrompt}?model=flux&v={$timestamp}";
             
             // Verificar se a URL da imagem é válida
             $response = Http::timeout(30)->get($imageUrl);

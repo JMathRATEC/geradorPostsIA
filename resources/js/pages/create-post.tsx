@@ -148,7 +148,7 @@ export default function CreatePost() {
 
             const encodedPrompt = encodeURIComponent(prompt);
             const timestamp = Date.now();
-            const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?v=${timestamp}`;
+            const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?model=flux&v=${timestamp}`;
 
             console.log('URL da imagem:', imageUrl);
 
